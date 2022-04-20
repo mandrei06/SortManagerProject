@@ -29,6 +29,12 @@ public class SortManager {
             System.out.println("The array sorted using Bubble sort is:");
             System.out.println(Arrays.toString(bubbleSort.bubbleSort(numbersArray)));
         }
+        else
+            if (algorithmChoice==2){
+                MergeSort mergeSort=new MergeSort();
+                System.out.println("The array sorted using Merge sort is:");
+                System.out.println(Arrays.toString(mergeSort.sort(numbersArray,0,numbersArray.length-1)));
+            }
 
     }
 
