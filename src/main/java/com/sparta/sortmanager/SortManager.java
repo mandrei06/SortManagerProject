@@ -24,7 +24,11 @@ public class SortManager {
 
         //Printing the unsorted array
         System.out.println(Arrays.toString(numbersArray));
-
+        if(algorithmChoice==1){
+            BubbleSort bubbleSort=new BubbleSort();
+            System.out.println("The array sorted using Bubble sort is:");
+            System.out.println(Arrays.toString(bubbleSort.bubbleSort(numbersArray)));
+        }
 
     }
 
