@@ -1,4 +1,4 @@
-package com.sparta.sortmanager.controler;
+package com.sparta.sortmanager.controller;
 
 import com.sparta.sortmanager.model.SortFactory;
 import com.sparta.sortmanager.model.SortMethod;
