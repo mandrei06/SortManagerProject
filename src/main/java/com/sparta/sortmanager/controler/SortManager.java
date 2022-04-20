@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 public class SortManager {
     public static void main(String[] args) {
+        final long startTime = System.currentTimeMillis();
         //Input for algorithm choice
         System.out.println("Please choose number:\n1-For bubble sort\n2-For merge sort");
         Scanner scanner=new Scanner(System.in);
@@ -32,7 +33,8 @@ public class SortManager {
         SortMethod sortMethod= SortFactory.getSortMethod(algorithmChoice);
         System.out.println("You choose to use:");
         System.out.println(sortMethod.getClass().getSimpleName());//Add error handling for null
-
+        final long endTime = System.currentTimeMillis();
+        System.out.println("Total execution time: " + (endTime - startTime)+" milliseconds (1 ms = 0.001s)");
 
     }
 
