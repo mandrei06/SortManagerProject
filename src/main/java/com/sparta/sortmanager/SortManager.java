@@ -1,14 +1,35 @@
 package com.sparta.sortmanager;
 
+import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class SortManager {
     public static void main(String[] args) {
-
+        //Input for algorithm choice
         System.out.println("Please choose number:\n1-For bubble sort\n2-For merge sort");
         Scanner scanner=new Scanner(System.in);
         int algorithmChoice=scanner.nextInt();
-        System.out.println(algorithmChoice);
+
+
+        //Input for array length
+        System.out.println("Please enter an integer number for the length of the array");
+        int arrayLength=scanner.nextInt();
+        int[] numbersArray = new int[arrayLength];
+
+        //Creating a random integers array
+        for (int i = 0; i < arrayLength; i++) {
+            numbersArray[i] = new Random().nextInt(2000)-1000;//between -1000 and +1000
+        }
+
+        //Printing the unsorted array
+        System.out.println(Arrays.toString(numbersArray));
+        if(algorithmChoice==1){
+            BubbleSort bubbleSort=new BubbleSort();
+            System.out.println("The array sorted using Bubble sort is:");
+            System.out.println(Arrays.toString(bubbleSort.bubbleSort(numbersArray)));
+        }
+
     }
 
 }
