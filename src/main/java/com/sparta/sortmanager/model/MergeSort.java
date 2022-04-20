@@ -1,6 +1,8 @@
-package com.sparta.sortmanager;
+package com.sparta.sortmanager.model;
 
-public class MergeSort {
+import com.sparta.sortmanager.model.Sortable;
+
+public class MergeSort extends SortMethod implements Sortable {
 
     void mergeSort(int[] arr, int l, int m, int r) {
         // Find sizes of two subarrays to be merged
@@ -49,15 +51,15 @@ public class MergeSort {
         }
 
     }
-    int[] sort(int[] arr, int l, int r)
+    public int[] sortAr(int[] arr, int l, int r)
     {
         if (l < r) {
             // Find the middle point
             int m =l+ (r-l)/2;
 
             // Sort first and second halves
-            sort(arr, l, m);
-            sort(arr, m + 1, r);
+            sortAr(arr, l, m);
+            sortAr(arr, m + 1, r);
 
             // Merge the sorted halves
             mergeSort(arr, l, m, r);
@@ -66,4 +68,9 @@ public class MergeSort {
     }
 
 
+    @Override
+    public int[] sort(int[] array) {
+        sortAr(array,0,array.length-1);
+        return array;
+    }
 }

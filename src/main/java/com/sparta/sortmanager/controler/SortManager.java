@@ -1,4 +1,9 @@
-package com.sparta.sortmanager;
+package com.sparta.sortmanager.controler;
+
+import com.sparta.sortmanager.model.BubbleSort;
+import com.sparta.sortmanager.model.MergeSort;
+import com.sparta.sortmanager.model.SortFactory;
+import com.sparta.sortmanager.model.SortMethod;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -24,17 +29,10 @@ public class SortManager {
 
         //Printing the unsorted array
         System.out.println(Arrays.toString(numbersArray));
-        if(algorithmChoice==1){
-            BubbleSort bubbleSort=new BubbleSort();
-            System.out.println("The array sorted using Bubble sort is:");
-            System.out.println(Arrays.toString(bubbleSort.bubbleSort(numbersArray)));
-        }
-        else
-            if (algorithmChoice==2){
-                MergeSort mergeSort=new MergeSort();
-                System.out.println("The array sorted using Merge sort is:");
-                System.out.println(Arrays.toString(mergeSort.sort(numbersArray,0,numbersArray.length-1)));
-            }
+        SortMethod sortMethod= SortFactory.getSortMethod(algorithmChoice);
+        System.out.println("You choose to use:");
+        System.out.println(sortMethod.getClass().getSimpleName());//Add error handling for null
+
 
     }
 
