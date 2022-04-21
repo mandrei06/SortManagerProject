@@ -51,11 +51,11 @@ public class MergeSort extends SortMethod implements Sortable {
         }
 
     }
-    public int[] sortAr(int[] arr, int l, int r)
-    {
+
+    public int[] sortAr(int[] arr, int l, int r) {
         if (l < r) {
             // Find the middle point
-            int m =l+ (r-l)/2;
+            int m = l + (r - l) / 2;
 
             // Sort first and second halves
             sortAr(arr, l, m);
@@ -67,10 +67,11 @@ public class MergeSort extends SortMethod implements Sortable {
         return arr;
     }
 
-
+    //This is my adaptor method
     @Override
     public int[] sort(int[] array) {
-        sortAr(array,0,array.length-1);
-        return array;
+        int[] copyArray = array;
+        copyArray = sortAr(copyArray, 0, array.length - 1);
+        return copyArray;
     }
 }
