@@ -1,5 +1,6 @@
 package com.sparta.sortmanager.model;
 
+import com.sparta.sortmanager.logging.LogDriver;
 import com.sparta.sortmanager.model.Sortable;
 
 public class MergeSort extends SortMethod implements Sortable {
@@ -72,6 +73,7 @@ public class MergeSort extends SortMethod implements Sortable {
     public int[] sort(int[] array) {
         int[] copyArray = array;
         copyArray = sortAr(copyArray, 0, array.length - 1);
+        LogDriver.logger.info("MergeSort ran successfully!");
         return copyArray;
     }
 }

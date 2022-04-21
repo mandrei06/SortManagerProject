@@ -34,6 +34,7 @@ public class SortManager {
         SortMethod sortMethod= SortFactory.getSortMethod(algorithmChoice);
         System.out.println("You choose to use:");
         System.out.println(sortMethod.getClass().getSimpleName());//Add error handling for null
+        System.out.println(Arrays.toString(sortMethod.sort(numbersArray)));
         final long endTime = System.currentTimeMillis();
         System.out.println("Total time for sorting: " + (endTime - startTime)+" milliseconds (1 ms = 0.001s)");
 

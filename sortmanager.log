@@ -1,3 +1,8 @@
 File Log: [INFO ] 2022-04-21 11:46:15,244 main Logger - This is an info message
 File Log: [INFO ] 2022-04-21 11:47:34,576 main SortManagerLogger - This is an info message
 File Log: [INFO ] 2022-04-21 11:51:16,863 main SortManagerLogger - This is an info message
+File Log: [INFO ] 2022-04-21 16:13:30,586 main SortManagerLogger - This is an info message
+File Log: [INFO ] 2022-04-21 16:16:09,151 main SortManagerLogger - This is an info message
+File Log: [INFO ] 2022-04-21 16:20:24,684 main SortManagerLogger - BubbleSort ran successfully!
+File Log: [INFO ] 2022-04-21 16:20:50,020 main SortManagerLogger - MergeSort ran successfully!
+File Log: [INFO ] 2022-04-21 16:21:26,221 main SortManagerLogger - MergeSort ran successfully!

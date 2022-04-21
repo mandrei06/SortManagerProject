@@ -1,5 +1,6 @@
 package com.sparta.sortmanager.model;
 
+import com.sparta.sortmanager.logging.LogDriver;
 import com.sparta.sortmanager.model.Sortable;
 
 public class BubbleSort extends SortMethod implements Sortable {
@@ -13,6 +14,7 @@ public class BubbleSort extends SortMethod implements Sortable {
                     array[j] = array[j + 1];
                     array[j + 1] = temp;
                 }
+        LogDriver.logger.info("BubbleSort ran successfully!");
         return array;
     }
 }
