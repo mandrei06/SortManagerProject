@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class SortManager {
     public static void main(String[] args) {
-
+        //model for algorithm choice
         //Input for algorithm choice
         DisplayManager displayManager=new DisplayManager();
         int algorithmChoice = displayManager.inputSortMethod();
@@ -33,10 +33,17 @@ public class SortManager {
         final long startTime = System.currentTimeMillis();
         SortMethod sortMethod= SortFactory.getSortMethod(algorithmChoice);
         System.out.println("You choose to use:");
-        System.out.println(sortMethod.getClass().getSimpleName());//Add error handling for null
-        System.out.println(Arrays.toString(sortMethod.sort(numbersArray)));
-        final long endTime = System.currentTimeMillis();
-        System.out.println("Total time for sorting: " + (endTime - startTime)+" milliseconds (1 ms = 0.001s)");
+        try{
+            System.out.println(sortMethod.getClass().getSimpleName());//Add error handling for null
+            System.out.println(Arrays.toString(sortMethod.sort(numbersArray)));
+            final long endTime = System.currentTimeMillis();
+            System.out.println("Total time for sorting: " + (endTime - startTime)+" milliseconds (1 ms = 0.001s)");
+
+
+        }catch (NullPointerException e){
+            System.out.println("You enter an invalid input!");
+        }
+
 
     }
 
