@@ -1,49 +1,54 @@
 package com.sparta.sortmanager.controller;
 
+import com.sparta.sortmanager.logging.LogDriver;
+import com.sparta.sortmanager.model.RandomIntArray;
 import com.sparta.sortmanager.model.SortFactory;
 import com.sparta.sortmanager.model.SortMethod;
-import com.sparta.sortmanager.view.DisplayManager;
+import com.sparta.sortmanager.model.TimeCounter;
+import com.sparta.sortmanager.view.ArrayLength;
+import com.sparta.sortmanager.view.ArrayPrint;
+import com.sparta.sortmanager.view.SortChoice;
+import com.sparta.sortmanager.view.TimePrinter;
 
 import java.util.Arrays;
-import java.util.Random;
+import java.util.Scanner;
 
 public class SortManager {
     public static void main(String[] args) {
-        //model for algorithm choice
         //Input for algorithm choice
-        DisplayManager displayManager=new DisplayManager();
-        int algorithmChoice = displayManager.inputSortMethod();
+        Scanner scanner = new Scanner(System.in);
+        SortChoice.inputSortMethod();
+        int algorithmChoice = scanner.nextInt();
+
 
         //Input for array length
-        int arrayLength=displayManager.inputArrayLength();
+        ArrayLength.inputArrayLength();
+        int arrayLength = scanner.nextInt();
 
-        //Move this to MODEL
-        //Move this to MODEL
-        //Move this to MODEL
-        //Move this to MODEL
-        //Move this to MODEL
+
         //Creating a random integers array
-        int[] numbersArray = new int[arrayLength];//move this to MODEL
-        for (int i = 0; i < arrayLength; i++) {
-            numbersArray[i] = new Random().nextInt(2000)-1000;//between -1000 and +1000
-        }
+        int[] numbersArray = RandomIntArray.randomIntArray(arrayLength);
 
         //Printing the unsorted array
-        System.out.println(Arrays.toString(numbersArray));
-        final long startTime = System.currentTimeMillis();
-        SortMethod sortMethod= SortFactory.getSortMethod(algorithmChoice);
-        System.out.println("You choose to use:");
-        try{
-            System.out.println(sortMethod.getClass().getSimpleName());//Add error handling for null
+        ArrayPrint.arrayPrint(numbersArray);
+
+        //Start timing
+        TimeCounter.startTime();
+
+        SortMethod sortMethod = SortFactory.getSortMethod(algorithmChoice);
+        try {
+            System.out.println("You choose to use"+sortMethod.getClass().getSimpleName());//Add error handling for null
             System.out.println(Arrays.toString(sortMethod.sort(numbersArray)));
-            final long endTime = System.currentTimeMillis();
-            System.out.println("Total time for sorting: " + (endTime - startTime)+" milliseconds (1 ms = 0.001s)");
 
 
-        }catch (NullPointerException e){
-            System.out.println("You enter an invalid input!");
+        } catch (NullPointerException e) {
+            System.out.println("Invalid input!");
+            LogDriver.logger.error("Invalid input");
         }
 
+        //Display the time
+        TimeCounter.stopTime();
+        TimePrinter.totalTime();
 
     }
 

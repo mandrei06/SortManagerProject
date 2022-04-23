@@ -3,7 +3,7 @@ package com.sparta.sortmanager.model;
 import com.sparta.sortmanager.logging.LogDriver;
 import com.sparta.sortmanager.model.Sortable;
 
-public class MergeSort extends SortMethod implements Sortable {
+public class MergeSort extends SortMethod {
 
     void mergeSort(int[] arr, int l, int m, int r) {
         // Find sizes of two subarrays to be merged
