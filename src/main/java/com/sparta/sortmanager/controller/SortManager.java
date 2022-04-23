@@ -83,7 +83,9 @@ public class SortManager {
         try {
             int again = scanner.nextInt();
             if (again == 1) {
+                LogDriver.logger.info("New run.");
                 SortManager.main(null);
+
             }
         } catch (InputMismatchException e) {
             System.out.println("Thank you!");
