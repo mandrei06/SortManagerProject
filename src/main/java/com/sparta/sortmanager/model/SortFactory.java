@@ -7,7 +7,9 @@ public class SortFactory {
             return new BubbleSort();
         } else if (sortType == 2) {
             return new MergeSort();
-        } else
+        } else if(sortType==3){
+            return new BinarySearchTree();
+        }else
             return null;
     }
 }
