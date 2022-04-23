@@ -19,9 +19,15 @@ public class BubbleSortTest {
     }
 
     @Test
-    void sort() {
+    void normalInput() {
        int[] result= bubbleSort.sort(new int[]{-569, 268, -139, -298, -249, 507, 169, -52, 916, -115});
        int[] expected=new int[]{-569, -298, -249, -139, -115, -52, 169, 268, 507, 916};
+        Assertions.assertArrayEquals(result,expected);
+    }
+    @Test
+    void nullInput() {
+        int[] result= bubbleSort.sort(new int[]{});
+        int[] expected=new int[]{};
         Assertions.assertArrayEquals(result,expected);
     }
 }

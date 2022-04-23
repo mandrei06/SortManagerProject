@@ -65,12 +65,13 @@ public class SortManager {
         ArrayPrint.arrayPrint(numbersArray);
 
 
-
         SortMethod sortMethod = SortFactory.getSortMethod(algorithmChoice);
         try {
-            System.out.println("You choose to use " + sortMethod.getClass().getSimpleName());//Add error handling for null
-            System.out.println("Array after sorting");
-            System.out.println(Arrays.toString(sortMethod.sort(numbersArray)));
+            if (sortMethod != null) {
+                System.out.println("You choose to use " + sortMethod.getClass().getSimpleName());//Add error handling for null
+                System.out.println("Array after sorting");
+                System.out.println(Arrays.toString(sortMethod.sort(numbersArray)));
+            }
 
 
         } catch (NullPointerException e) {
@@ -81,21 +82,6 @@ public class SortManager {
         //Display the time
         TimeCounter.stopTime();
         TimePrinter.totalTime();
-
-
-//        System.out.println("Would you like to start all over again? Press 1 for Yes, any other key for no");
-//        try {
-//            int again = scanner.nextInt();
-//            if (again == 1) {
-//                LogDriver.logger.info("New run.");
-//                SortManager.main(null);//The problem is that I have to create new instances of
-//                //other classes as well otherwise I will get errors for index out of bounds
-//
-//            }
-//        } catch (InputMismatchException e) {
-//            System.out.println("Thank you!");
-//            LogDriver.logger.error("Program exit!");
-//        }
 
 
     }

@@ -23,11 +23,6 @@ public class BinarySearchTree extends SortMethod {
     // Root of BST
     Node root;
 
-    // Constructor
-    BinarySearchTree() {
-        root = null;
-    }
-
     // This method mainly calls insertRec()
     void insert(int key) {
         root = insertRec(root, key);
